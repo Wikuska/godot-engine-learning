@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=4 uid="uid://e3xom825biyq"]
+[gd_scene load_steps=5 format=4 uid="uid://e3xom825biyq"]
 
 [ext_resource type="TileSet" uid="uid://0jrs1ilxt7dv" path="res://Tilesets/game_tile_set.tres" id="1_cn6uj"]
+[ext_resource type="PackedScene" uid="uid://dverdy51ypcyt" path="res://scenes/characters/chicken/chicken.tscn" id="2_ewfog"]
 [ext_resource type="PackedScene" uid="uid://c1cgr0m85m1o1" path="res://scenes/characters/player/player.tscn" id="2_s8huy"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_sh8n6"]
+vertices = PackedVector2Array(289, 209, 185, 209, 185, 150, 289, 150)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(175, 140, 299, 140, 299, 219, 175, 219)])
 
 [node name="TestSceneNPCChicken" type="Node2D"]
 y_sort_enabled = true
@@ -32,3 +38,11 @@ tile_set = ExtResource("1_cn6uj")
 position = Vector2(162, 120)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Chickens" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Chickens"]
+navigation_polygon = SubResource("NavigationPolygon_sh8n6")
+
+[node name="Chicken" parent="Chickens" instance=ExtResource("2_ewfog")]
+position = Vector2(204, 171)
