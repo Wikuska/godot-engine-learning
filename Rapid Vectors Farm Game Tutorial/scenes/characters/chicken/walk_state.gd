@@ -29,6 +29,10 @@ func _on_process(_delta : float) -> void:
 
 
 func _on_physics_process(_delta : float) -> void:
+	if navigation_agent_2d.is_navigation_finished():
+		set_movement_target()
+		return
+		
 	var target_position: Vector2 = navigation_agent_2d.get_next_path_position()
 	var target_direction: Vector2 = character.global_position.direction_to(target_position)
 	animated_sprite_2d.flip_h = target_direction.x < 0
