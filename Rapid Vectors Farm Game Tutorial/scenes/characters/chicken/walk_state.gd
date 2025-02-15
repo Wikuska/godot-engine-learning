@@ -41,7 +41,9 @@ func _on_physics_process(_delta : float) -> void:
 
 
 func _on_next_transitions() -> void:
-	pass
+	if navigation_agent_2d.is_navigation_finished():
+		character.velocity = Vector2.ZERO
+		transition.emit("Idle")
 
 
 func _on_enter() -> void:
