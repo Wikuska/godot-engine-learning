@@ -1,13 +1,20 @@
-[gd_scene load_steps=5 format=4 uid="uid://dq2eb3ikctusf"]
+[gd_scene load_steps=7 format=4 uid="uid://dq2eb3ikctusf"]
 
 [ext_resource type="TileSet" uid="uid://0jrs1ilxt7dv" path="res://Tilesets/game_tile_set.tres" id="1_p07q4"]
 [ext_resource type="PackedScene" uid="uid://c1cgr0m85m1o1" path="res://scenes/characters/player/player.tscn" id="2_wjm7w"]
 [ext_resource type="PackedScene" uid="uid://dverdy51ypcyt" path="res://scenes/characters/chicken/chicken.tscn" id="3_pr173"]
+[ext_resource type="PackedScene" uid="uid://bc4otdxrvvebu" path="res://scenes/characters/cow/cow.tscn" id="4_fqe76"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_scted"]
 vertices = PackedVector2Array(133, 244.82, 133, 222, 190, 222, 207.922, 259.977, 190, 190, 142, 190, 142, 126, 196, 126, 196, 174, 222, 174, 222, 126, 276, 126, 276, 190, 228, 190, 302, 222, 302, 113.977, 336.688, 113.211, 343.648, 211.477, 284.422, 259.039, 228, 222)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(14, 17, 18), PackedInt32Array(19, 14, 18, 3), PackedInt32Array(13, 19, 3, 2, 4, 8, 9)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(122, 108, 123, 192, 123, 253, 207, 270, 288, 269, 354, 216, 346, 103)])
+source_geometry_mode = 2
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ib58t"]
+vertices = PackedVector2Array(371.227, 124.07, 411, 115.719, 411, 150, 373.758, 212.617, 411, 183, 411, 219.438, 437, 150, 437, 183, 459, 150, 459, 182, 437, 118, 507, 118, 507, 150, 507, 182, 507, 214, 437, 214)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 3), PackedInt32Array(4, 3, 2, 6), PackedInt32Array(7, 4, 6, 8, 9), PackedInt32Array(6, 10, 11, 8), PackedInt32Array(11, 12, 8), PackedInt32Array(9, 13, 14, 15, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(423, 103, 520, 103, 520, 235, 424, 232, 364, 221, 361, 116)])
 source_geometry_mode = 2
 
 [node name="TestSceneNPCNavigation" type="Node2D"]
@@ -33,7 +40,7 @@ tile_set = ExtResource("1_p07q4")
 
 [node name="Objects" type="TileMapLayer" parent="GameTileMap" groups=["navigation_polygon_source_geometry_group"]]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAARAAYABAADAAAAAAAQAAYABAACAAMAAAAPAAYABAACAAMAAAAOAAYABAACAAMAAAANAAYABAACAAMAAAAMAAYABAACAAAAAAALAAYABAACAAMAAAAKAAYABAACAAMAAAAJAAYABAACAAMAAAAIAAYABAACAAMAAAAHAAYABAABAAAAAAARAAwABAADAAIAAAARAAsABAAAAAEAAAARAAoABAAAAAEAAAARAAkABAAAAAEAAAARAAgABAAAAAEAAAARAAcABAAAAAEAAAAHAAwABAABAAIAAAAHAAsABAAAAAEAAAAHAAoABAAAAAEAAAAHAAkABAAAAAEAAAAHAAgABAAAAAEAAAAHAAcABAAAAAEAAAAMAAkABAAAAAIAAAAMAAgABAAAAAEAAAAMAAcABAAAAAEAAAAKAAwABAADAAMAAAAJAAwABAACAAMAAAAIAAwABAACAAMAAAAPAAwABAACAAMAAAAQAAwABAACAAMAAAAOAAwABAABAAMAAAA=")
+tile_map_data = PackedByteArray("AAARAAYABAADAAAAAAAQAAYABAACAAMAAAAPAAYABAACAAMAAAAOAAYABAACAAMAAAANAAYABAACAAMAAAAMAAYABAACAAAAAAALAAYABAACAAMAAAAKAAYABAACAAMAAAAJAAYABAACAAMAAAAIAAYABAACAAMAAAAHAAYABAABAAAAAAARAAwABAADAAIAAAARAAsABAAAAAEAAAARAAoABAAAAAEAAAARAAkABAAAAAEAAAARAAgABAAAAAEAAAARAAcABAAAAAEAAAAHAAwABAABAAIAAAAHAAsABAAAAAEAAAAHAAoABAAAAAEAAAAHAAkABAAAAAEAAAAHAAgABAAAAAEAAAAHAAcABAAAAAEAAAAMAAkABAAAAAIAAAAMAAgABAAAAAEAAAAMAAcABAAAAAEAAAAKAAwABAADAAMAAAAJAAwABAACAAMAAAAIAAwABAACAAMAAAAPAAwABAACAAMAAAAQAAwABAACAAMAAAAOAAwABAABAAMAAAAgAAYABAADAAAAAAAfAAYABAACAAMAAAAeAAYABAACAAMAAAAdAAYABAACAAMAAAAcAAYABAACAAMAAAAbAAYABAACAAMAAAAaAAYABAABAAAAAAAgAAoABAADAAEAAAAgAAkABAAAAAEAAAAgAAgABAAAAAEAAAAgAAcABAAAAAEAAAAdAAoABAABAAMAAAAeAAoABAACAAMAAAAfAAoABAACAAMAAAAgAA4ABAADAAIAAAAgAA0ABAAAAAEAAAAgAAwABAAAAAEAAAAgAAsABAAAAAEAAAAaAA4ABAABAAIAAAAbAA4ABAACAAMAAAAcAA4ABAACAAMAAAAdAA4ABAACAAMAAAAeAA4ABAACAAMAAAAfAA4ABAACAAMAAAAaAAgABAAAAAIAAAAaAAcABAAAAAEAAAAaAA0ABAAAAAEAAAAaAAwABAAAAAAAAAA=")
 tile_set = ExtResource("1_p07q4")
 
 [node name="Player" parent="." instance=ExtResource("2_wjm7w")]
@@ -64,3 +71,16 @@ position = Vector2(303, 161)
 position = Vector2(228, 134)
 
 [node name="Cows" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Cows"]
+navigation_polygon = SubResource("NavigationPolygon_ib58t")
+navigation_layers = 2
+
+[node name="Cow" parent="Cows" instance=ExtResource("4_fqe76")]
+position = Vector2(458, 135)
+
+[node name="Cow2" parent="Cows" instance=ExtResource("4_fqe76")]
+position = Vector2(495, 199)
+
+[node name="Cow3" parent="Cows" instance=ExtResource("4_fqe76")]
+position = Vector2(392, 195)
