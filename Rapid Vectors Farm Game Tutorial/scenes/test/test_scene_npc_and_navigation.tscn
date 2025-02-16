@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=4 uid="uid://dq2eb3ikctusf"]
+[gd_scene load_steps=5 format=4 uid="uid://dq2eb3ikctusf"]
 
 [ext_resource type="TileSet" uid="uid://0jrs1ilxt7dv" path="res://Tilesets/game_tile_set.tres" id="1_p07q4"]
 [ext_resource type="PackedScene" uid="uid://c1cgr0m85m1o1" path="res://scenes/characters/player/player.tscn" id="2_wjm7w"]
+[ext_resource type="PackedScene" uid="uid://dverdy51ypcyt" path="res://scenes/characters/chicken/chicken.tscn" id="3_pr173"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_scted"]
+vertices = PackedVector2Array(133, 244.82, 133, 222, 190, 222, 207.922, 259.977, 190, 190, 142, 190, 142, 126, 196, 126, 196, 174, 222, 174, 222, 126, 276, 126, 276, 190, 228, 190, 302, 222, 302, 113.977, 336.688, 113.211, 343.648, 211.477, 284.422, 259.039, 228, 222)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(14, 17, 18), PackedInt32Array(19, 14, 18, 3), PackedInt32Array(13, 19, 3, 2, 4, 8, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(122, 108, 123, 192, 123, 253, 207, 270, 288, 269, 354, 216, 346, 103)])
+source_geometry_mode = 2
 
 [node name="TestSceneNPCNavigation" type="Node2D"]
 y_sort_enabled = true
@@ -24,14 +31,36 @@ tile_set = ExtResource("1_p07q4")
 y_sort_enabled = true
 tile_set = ExtResource("1_p07q4")
 
-[node name="Objects" type="TileMapLayer" parent="GameTileMap"]
+[node name="Objects" type="TileMapLayer" parent="GameTileMap" groups=["navigation_polygon_source_geometry_group"]]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAARAAYABAADAAAAAAAQAAYABAACAAMAAAAPAAYABAACAAMAAAAOAAYABAACAAMAAAANAAYABAACAAMAAAAMAAYABAACAAAAAAALAAYABAACAAMAAAAKAAYABAACAAMAAAAJAAYABAACAAMAAAAIAAYABAACAAMAAAAHAAYABAABAAAAAAARAAwABAADAAIAAAARAAsABAAAAAEAAAARAAoABAAAAAEAAAARAAkABAAAAAEAAAARAAgABAAAAAEAAAARAAcABAAAAAEAAAANAAwABAABAAMAAAAOAAwABAACAAMAAAAPAAwABAACAAMAAAAQAAwABAACAAMAAAAHAAwABAABAAIAAAAHAAsABAAAAAEAAAAHAAoABAAAAAEAAAAHAAkABAAAAAEAAAAHAAgABAAAAAEAAAAHAAcABAAAAAEAAAAKAAwABAACAAMAAAAJAAwABAACAAMAAAAIAAwABAACAAMAAAALAAwABAADAAMAAAAMAAkABAAAAAIAAAAMAAgABAAAAAEAAAAMAAcABAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAARAAYABAADAAAAAAAQAAYABAACAAMAAAAPAAYABAACAAMAAAAOAAYABAACAAMAAAANAAYABAACAAMAAAAMAAYABAACAAAAAAALAAYABAACAAMAAAAKAAYABAACAAMAAAAJAAYABAACAAMAAAAIAAYABAACAAMAAAAHAAYABAABAAAAAAARAAwABAADAAIAAAARAAsABAAAAAEAAAARAAoABAAAAAEAAAARAAkABAAAAAEAAAARAAgABAAAAAEAAAARAAcABAAAAAEAAAAHAAwABAABAAIAAAAHAAsABAAAAAEAAAAHAAoABAAAAAEAAAAHAAkABAAAAAEAAAAHAAgABAAAAAEAAAAHAAcABAAAAAEAAAAMAAkABAAAAAIAAAAMAAgABAAAAAEAAAAMAAcABAAAAAEAAAAKAAwABAADAAMAAAAJAAwABAACAAMAAAAIAAwABAACAAMAAAAPAAwABAACAAMAAAAQAAwABAACAAMAAAAOAAwABAABAAMAAAA=")
 tile_set = ExtResource("1_p07q4")
 
 [node name="Player" parent="." instance=ExtResource("2_wjm7w")]
-position = Vector2(298, 237)
+position = Vector2(327, 268)
 
 [node name="Chickens" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Chickens"]
+position = Vector2(-9, -8)
+navigation_polygon = SubResource("NavigationPolygon_scted")
+
+[node name="Chicken" parent="Chickens" instance=ExtResource("3_pr173")]
+position = Vector2(148, 141)
+
+[node name="Chicken2" parent="Chickens" instance=ExtResource("3_pr173")]
+position = Vector2(235, 176)
+
+[node name="Chicken3" parent="Chickens" instance=ExtResource("3_pr173")]
+position = Vector2(199, 217)
+
+[node name="Chicken4" parent="Chickens" instance=ExtResource("3_pr173")]
+position = Vector2(162, 178)
+
+[node name="Chicken5" parent="Chickens" instance=ExtResource("3_pr173")]
+position = Vector2(303, 161)
+
+[node name="Chicken6" parent="Chickens" instance=ExtResource("3_pr173")]
+position = Vector2(228, 134)
 
 [node name="Cows" type="Node2D" parent="."]
