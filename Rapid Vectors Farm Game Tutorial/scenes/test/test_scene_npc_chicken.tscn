@@ -45,4 +45,4 @@ position = Vector2(162, 120)
 navigation_polygon = SubResource("NavigationPolygon_sh8n6")
 
 [node name="Chicken" parent="Chickens" instance=ExtResource("2_ewfog")]
-position = Vector2(204, 171)
+position = Vector2(212, 170)
