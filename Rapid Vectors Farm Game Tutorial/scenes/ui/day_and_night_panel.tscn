@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://hdorx73henm"]
+[gd_scene load_steps=5 format=3 uid="uid://hdorx73henm"]
 
 [ext_resource type="Theme" uid="uid://cptr2wv35lty0" path="res://scenes/ui/game_ui_theme.tres" id="1_bsgeb"]
+[ext_resource type="Script" path="res://scenes/ui/day_and_night_panel.gd" id="2_7fqih"]
 [ext_resource type="Texture2D" uid="uid://dn5nyoibl6lgq" path="res://assets/ui/basic_ui_sprites.png" id="2_dnb61"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xkud"]
@@ -11,6 +12,7 @@ region = Rect2(261, 2, 7, 12)
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_bsgeb")
+script = ExtResource("2_7fqih")
 
 [node name="DayPanel" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -25,7 +27,7 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="Label" type="Label" parent="DayPanel/MarginContainer"]
+[node name="DayLabel" type="Label" parent="DayPanel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"DayAndNightLabel"
@@ -45,11 +47,11 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="Label" type="Label" parent="TimePanel/MarginContainer"]
+[node name="TimeLabel" type="Label" parent="TimePanel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"DayAndNightLabel"
-text = "12:00"
+text = "00:00"
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
@@ -165,3 +167,7 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_5xkud")
+
+[connection signal="pressed" from="Control/NormalSpeedButton" to="." method="_on_normal_speed_button_pressed"]
+[connection signal="pressed" from="Control/FastSpeedButton" to="." method="_on_fast_speed_button_pressed"]
+[connection signal="pressed" from="Control/CheetahSpeedButton" to="." method="_on_cheetah_speed_button_pressed"]
