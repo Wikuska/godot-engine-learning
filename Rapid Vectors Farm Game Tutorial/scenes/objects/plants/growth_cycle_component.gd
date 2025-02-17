@@ -47,8 +47,8 @@ func growth_state(starting_day: int, current_day: int):
 	current_growth_state = state_index
 	
 	# Fetches name of growth state and prints it for debugging
-	var name = DataTypes.GrowthStates.keys()[current_growth_state]
-	print("Current growth state:", name)
+	#var name = DataTypes.GrowthStates.keys()[current_growth_state]
+	#print("Current growth state:", name)
 	
 	# If maturity state is reached, emits crop_maturity signal
 	if current_growth_state == DataTypes.GrowthStates.Maturity:
